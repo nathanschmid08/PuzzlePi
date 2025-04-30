@@ -1,0 +1,60 @@
+Grade 3 (ca. 8 Jahre)
+Multiplizieren und Dividieren (kleines 1×1 und 1÷1)
+Brüche kennenlernen (als Teil eines Ganzen)
+Messen von Längen, Gewichten, Zeit
+Geometrie: einfache Formen, Flächen, Perimeter
+
+```
+
+Grade 4 (ca. 9 Jahre)
+Größere Zahlen addieren, subtrahieren, multiplizieren, dividieren
+Brüche vergleichen, gleichnamig machen
+Dezimalzahlen (bis zur Hundertstelstelle)
+Flächenberechnung (z. B. Rechteck)
+Koordinatensystem (einfache Einführung)
+
+```
+
+Grade 5 (ca. 10 Jahre)
+Rechnen mit Brüchen (addieren, subtrahieren, multiplizieren, dividieren)
+Dezimalzahlen + Einheitenumrechnung (z. B. cm ↔ m)
+Volumen von Quadern
+Graphen und einfache Dateninterpretation
+
+```
+
+Grade 6 (ca. 11 Jahre)
+Negative Zahlen (Einführung)
+Verhältnisrechnung und Prozent
+Einführung in Variablen und einfache Gleichungen
+Statistik: Mittelwert, Median, Modus
+Fläche und Volumen komplexerer Formen
+
+```
+
+Grade 7 (ca. 12 Jahre)
+Rechnen mit rationalen Zahlen (Brüche, negative Zahlen, Dezimalzahlen)
+Proportionale Beziehungen
+Lineare Gleichungen (einfache Form)
+Wahrscheinlichkeitsrechnung
+Geometrie: Winkel, Dreiecke, Flächen
+
+```
+
+Grade 8 (ca. 13 Jahre)
+Lineare Funktionen und Graphen
+Lineare Gleichungssysteme
+Quadratwurzeln, Potenzen, wissenschaftliche Notation
+Pythagoras
+Einführung in Transformationen (Spiegelung, Drehung, etc.)
+
+```
+
+Grade 9 (ca. 14–15 Jahre)
+➡ Meist: Algebra I
+
+Terme vereinfachen, Gleichungen lösen
+Funktionen (lineare, quadratische)
+Faktorisieren
+Graphen interpretieren
+Einführung in Ungleichungen & Systeme von Gleichungen
