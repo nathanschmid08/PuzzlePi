@@ -1,0 +1,93 @@
+In einem Balkendiagramm gibt es die folgenden Werte für die Anzahl der Äpfel, die in vier Obstläden verkauft wurden:
+    Laden A: 120 Äpfel
+    Laden B: 95 Äpfel
+    Laden C: 130 Äpfel
+    Laden D: 100 Äpfel
+Wie viele Äpfel wurden insgesamt verkauft?
+→ ___
+
+```
+
+Ein Diagramm zeigt die Anzahl von Schülern, die an einem Schulfest teilnehmen:
+    Klasse 1: 15 Schüler
+    Klasse 2: 20 Schüler
+    Klasse 3: 18 Schüler
+Wie viele Schüler nehmen insgesamt am Schulfest teil?
+→ ___
+
+```
+
+In einer Tabelle steht die Anzahl der Stunden, die Schüler in einer Woche für Hausaufgaben benötigen:
+
+    Schüler	    Stunden
+    Anna	    5
+    Ben	        4
+    Clara	    3
+    David	    6
+Wie viele Stunden haben alle Schüler zusammen für Hausaufgaben benötigt?	
+→ ___	
+
+```
+
+In einer Umfrage wurden die Lieblingsfarben von 50 Schülern abgefragt:
+    Blau: 18 Schüler
+    Rot: 14 Schüler
+    Grün: 8 Schüler
+Wie viele Schüler bevorzugen entweder Blau oder Rot?
+→ ___
+
+```
+
+Ein Diagramm zeigt, wie viele Bücher Schüler in der letzten Woche gelesen haben:
+    1 Buch: 10 Schüler
+    2 Bücher: 15 Schüler
+    3 Bücher: 5 Schüler
+Wie viele Bücher haben die Schüler insgesamt gelesen?
+→ ___
+
+```
+
+In einer Tabelle steht, wie viele Äpfel in verschiedenen Monaten geerntet wurden:
+    Monat   	Äpfel
+    Januar	    120
+    Februar	    150
+    März	    100
+Wie viele Äpfel wurden insgesamt im Januar, Februar und März geerntet?	
+→ ___	
+
+```
+
+Ein Balkendiagramm zeigt die Anzahl von Tassen Tee, die 4 Freunde an einem Tag trinken:
+    Freund A: 3 Tassen
+    Freund B: 5 Tassen
+    Freund C: 2 Tassen
+Wie viele Tassen Tee haben die Freunde insgesamt getrunken?
+→ ___
+
+```
+
+In einem Diagramm sind die Lieblingssportarten von Schülern abgebildet:
+    Fußball: 30 Schüler
+    Basketball: 25 Schüler
+Wie viele Schüler haben entweder Fußball oder Basketball als Lieblingssportart?
+→ ___
+
+```
+
+In einer Tabelle steht, wie viele Kekse jeder von 4 Freunden gegessen hat:
+    Freund	    Kekse
+    Max	        6
+    Sophie	    4
+    Paul	    7
+    Nina	    5
+Wie viele Kekse haben die Freunde insgesamt gegessen?	
+→ ___	
+
+```
+
+Ein Diagramm zeigt die Anzahl der Tage, die ein Hund an verschiedenen Tagen gewandert ist:
+    Tag 1: 3 km
+    Tag 2: 5 km
+    Tag 3: 7 km
+Wie viele Kilometer ist der Hund insgesamt gewandert?
+→ ___
