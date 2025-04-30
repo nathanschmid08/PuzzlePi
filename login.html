@@ -711,7 +711,12 @@
         document.getElementById('login-button').addEventListener('click', () => {
             const username = document.getElementById('login-username').value;
             if (username) {
-                alert(`Amazing, ${username}! You're being redirected to the math adventure world. Get ready for exciting puzzles!`);
+
+                localStorage.setItem('puzzlePiUsername', username);
+                console.log(username);
+                
+                // Redirect to dashboard.html after the alert
+                window.location.href = 'dashboard.html';
             } else {
                 alert('Please enter your username so we know who you are!');
             }
