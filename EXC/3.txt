@@ -1,0 +1,57 @@
+LÄNGEN
+
+3 m = ___ cm
+145 cm = ___ m
+4 m + 120 cm = ___ cm
+500 cm = ___ m
+3 m − 180 cm = ___ cm
+700 mm = ___ cm
+2 m + 80 cm = ___ cm
+1 500 mm = ___ cm
+250 cm − 1 m = ___ cm
+6 m + 300 cm = ___ m
+
+```
+
+GEWICHT
+
+3 kg = ___ g
+2 kg + 450 g = ___ g
+1 500 g = ___ kg
+4 kg − 1 750 g = ___ g
+3 200 g + 2 kg = ___ g
+1 000 g = ___ kg
+6 kg = ___ g
+3 kg − 1 250 g = ___ g
+500 g + 2 kg = ___ g
+4 750 g = ___ kg und ___ g
+
+```
+
+ZEIT
+
+3 h = ___ min
+120 min = ___ h
+2 h + 45 min = ___ min
+3 h − 90 min = ___ min
+1 h 30 min + 1 h 15 min = ___ min
+180 min = ___ h
+4 h − 2 h 15 min = ___ min
+2 h 40 min = ___ min
+75 min = ___ h ___ min
+5 h + 2 h 30 min = ___ min
+
+```
+
+VOLUMEN
+
+3 L = ___ mL
+2 500 mL = ___ L
+1 L + 750 mL = ___ mL
+5 L − 1 250 mL = ___ mL
+3 L + 2 500 mL = ___ mL
+1 500 mL = ___ L und ___ mL
+4 L − 3 250 mL = ___ mL
+2 L 250 mL + 1 L 750 mL = ___ mL
+6 500 mL = ___ L ___ mL
+3 L × 2 = ___ L
