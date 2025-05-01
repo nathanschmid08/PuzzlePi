@@ -24,6 +24,13 @@ app.post('/signup', (req, res) => {
       }
     }
 
+    // Prüfen, ob Username schon existiert
+    const userExists = users.some(user => user.username === newUser.username);
+
+    if (userExists) {
+      return res.status(409).json({ message: 'Username existiert bereits. Bitte einen anderen wählen.' });
+    }
+
     // Nutzer anhängen
     users.push(newUser);
 

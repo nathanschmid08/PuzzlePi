@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Chewy&family=Luckiest+Guy&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Chewy&family=Luckiest+Guy&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <link rel="icon" href="ICON/icon.ico" type="image/x-icon">
     <title>PuzzlePi</title>
     <style>
@@ -19,7 +22,7 @@
             --error: #FF7675;
             --success: #55efc4;
         }
-        
+
         body {
             font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #dfe6e9;
@@ -33,7 +36,7 @@
             background-size: cover;
             background-position: center;
         }
-        
+
         .container {
             background-color: white;
             border-radius: 24px;
@@ -46,11 +49,11 @@
             transition: transform 0.3s ease;
             height: 550px;
         }
-        
+
         .container:hover {
             transform: translateY(-5px);
         }
-        
+
         .left-panel {
             flex: 4;
             padding: 30px;
@@ -63,7 +66,7 @@
             align-items: center;
             text-align: center;
         }
-        
+
         .left-panel::before {
             content: "";
             position: absolute;
@@ -71,26 +74,25 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: repeating-linear-gradient(
-                45deg,
-                rgba(255, 255, 255, 0.1),
-                rgba(255, 255, 255, 0.1) 10px,
-                transparent 10px,
-                transparent 20px
-            );
+            background: repeating-linear-gradient(45deg,
+                    rgba(255, 255, 255, 0.1),
+                    rgba(255, 255, 255, 0.1) 10px,
+                    transparent 10px,
+                    transparent 20px);
             animation: move-background 20s linear infinite;
             z-index: 0;
         }
-        
+
         @keyframes move-background {
             0% {
                 transform: rotate(0) translate(0, 0);
             }
+
             100% {
                 transform: rotate(360deg) translate(0, 0);
             }
         }
-        
+
         .logo {
             font-size: 60px;
             margin-bottom: 20px;
@@ -98,7 +100,7 @@
             position: relative;
             z-index: 1;
         }
-        
+
         h1 {
             color: white;
             margin: 0;
@@ -109,7 +111,7 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
             font-family: 'Chewy', cursive;
         }
-        
+
         .subtitle {
             color: rgba(255, 255, 255, 0.9);
             font-size: 18px;
@@ -118,14 +120,14 @@
             z-index: 1;
             max-width: 80%;
         }
-        
+
         .right-panel {
             flex: 6;
             padding: 30px;
             display: flex;
             flex-direction: column;
         }
-        
+
         .tab-slider {
             display: flex;
             position: relative;
@@ -138,7 +140,7 @@
             max-width: 300px;
             align-self: center;
         }
-        
+
         .tab {
             flex: 1;
             text-align: center;
@@ -150,11 +152,11 @@
             font-weight: 600;
             font-size: 16px;
         }
-        
+
         .tab.active {
             color: white;
         }
-        
+
         .tab-slider-indicator {
             position: absolute;
             height: 100%;
@@ -166,51 +168,58 @@
             transition: transform 0.3s ease;
             box-shadow: 0 2px 10px rgba(108, 92, 231, 0.5);
         }
-        
+
         .form-container {
             flex: 1;
             display: flex;
             flex-direction: column;
             overflow-y: auto;
         }
-        
+
         .form {
             display: none;
             flex: 1;
         }
-        
+
         .form.active {
             display: flex;
             flex-direction: column;
             animation: fadeIn 0.5s ease forwards;
         }
-        
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        
+
         .input-group {
             margin-bottom: 20px;
             position: relative;
         }
-        
+
         .form-content {
             flex: 1;
             display: flex;
             flex-direction: column;
         }
-        
+
         .form-row {
             display: flex;
             gap: 20px;
             margin-bottom: 15px;
         }
-        
+
         .form-col {
             flex: 1;
         }
-        
+
         label {
             display: block;
             margin-bottom: 8px;
@@ -218,7 +227,7 @@
             color: var(--dark);
             font-weight: 600;
         }
-        
+
         input {
             width: 100%;
             padding: 14px;
@@ -230,14 +239,14 @@
             background-color: #f9f9f9;
             font-family: 'Montserrat', sans-serif;
         }
-        
+
         input:focus {
             outline: none;
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
             background-color: white;
         }
-        
+
         select {
             width: 100%;
             padding: 14px;
@@ -253,14 +262,14 @@
             background-repeat: no-repeat;
             background-position: right 14px center;
         }
-        
+
         select:focus {
             outline: none;
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
             background-color: white;
         }
-        
+
         .input-icon {
             position: absolute;
             right: 15px;
@@ -268,11 +277,11 @@
             color: #aaa;
             transition: all 0.3s ease;
         }
-        
-        input:focus + .input-icon {
+
+        input:focus+.input-icon {
             color: var(--primary);
         }
-        
+
         button {
             width: 100%;
             padding: 16px;
@@ -290,17 +299,17 @@
             overflow: hidden;
             font-family: 'Montserrat', sans-serif;
         }
-        
+
         button:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(108, 92, 231, 0.6);
         }
-        
+
         button:active {
             transform: translateY(0);
             box-shadow: 0 2px 10px rgba(108, 92, 231, 0.4);
         }
-        
+
         button::after {
             content: "";
             position: absolute;
@@ -314,41 +323,42 @@
             transform: scale(1, 1) translate(-50%, -50%);
             transform-origin: 50% 50%;
         }
-        
+
         button:focus:not(:active)::after {
             animation: ripple 1s ease-out;
         }
-        
+
         @keyframes ripple {
             0% {
                 transform: scale(0, 0);
                 opacity: 0.5;
             }
+
             100% {
                 transform: scale(200, 200);
                 opacity: 0;
             }
         }
-        
+
         .form-footer {
             text-align: center;
             margin-top: 15px;
             font-size: 15px;
             color: #666;
         }
-        
+
         a {
             color: var(--primary);
             text-decoration: none;
             font-weight: bold;
             transition: all 0.3s ease;
         }
-        
+
         a:hover {
             color: var(--secondary);
             text-decoration: underline;
         }
-        
+
         .math-icons {
             display: flex;
             justify-content: center;
@@ -358,18 +368,18 @@
             position: relative;
             z-index: 1;
         }
-        
+
         .math-icon {
             margin: 0 10px;
             transition: all 0.3s ease;
             transform: rotate(0);
         }
-        
+
         .math-icon:hover {
             transform: rotate(360deg) scale(1.2);
             color: var(--accent);
         }
-        
+
         .math-decoration {
             position: absolute;
             font-size: 100px;
@@ -377,33 +387,33 @@
             z-index: 0;
             color: white;
         }
-        
+
         .math-decoration.top-left {
             top: 20px;
             left: 20px;
             transform: rotate(-20deg);
         }
-        
+
         .math-decoration.bottom-right {
             bottom: 20px;
             right: 20px;
             transform: rotate(20deg);
         }
-        
+
         .age-info {
             font-size: 13px;
             color: #888;
             margin-top: 5px;
             font-style: italic;
         }
-        
+
         .avatar-selection {
             display: flex;
             margin-top: 10px;
             justify-content: center;
             margin-bottom: 20px;
         }
-        
+
         .avatar {
             width: 50px;
             height: 50px;
@@ -413,12 +423,12 @@
             border: 3px solid transparent;
             transition: all 0.3s ease;
         }
-        
+
         .avatar.selected {
             border-color: var(--primary);
             transform: scale(1.1);
         }
-        
+
         .fun-fact {
             background-color: rgba(253, 203, 110, 0.2);
             border-radius: 12px;
@@ -427,7 +437,7 @@
             font-size: 14px;
             position: relative;
         }
-        
+
         .fun-fact-title {
             font-weight: bold;
             display: flex;
@@ -435,12 +445,12 @@
             margin-bottom: 5px;
             color: var(--dark);
         }
-        
+
         .fun-fact-title i {
             margin-right: 8px;
             color: var(--accent);
         }
-        
+
         .planet-background {
             position: fixed;
             top: 0;
@@ -450,13 +460,13 @@
             pointer-events: none;
             z-index: -1;
         }
-        
+
         .planet {
             position: absolute;
             border-radius: 50%;
             opacity: 0.7;
         }
-        
+
         .planet-1 {
             top: 10%;
             left: 5%;
@@ -465,7 +475,7 @@
             background: radial-gradient(circle at 30% 30%, var(--accent), var(--primary));
             animation: float 15s ease-in-out infinite;
         }
-        
+
         .planet-2 {
             bottom: 15%;
             right: 10%;
@@ -474,7 +484,7 @@
             background: radial-gradient(circle at 70% 70%, var(--secondary), var(--primary));
             animation: float 20s ease-in-out infinite reverse;
         }
-        
+
         .features {
             margin-top: 30px;
             display: flex;
@@ -482,37 +492,46 @@
             z-index: 1;
             position: relative;
         }
-        
+
         .feature {
             text-align: center;
             color: white;
             width: 120px;
         }
-        
+
         .feature-icon {
             font-size: 36px;
             margin-bottom: 10px;
             color: var(--accent);
         }
-        
+
         .feature-title {
             font-weight: bold;
             font-size: 14px;
             margin-bottom: 5px;
         }
-        
+
         .feature-desc {
             font-size: 12px;
             opacity: 0.8;
         }
-        
+
         @keyframes float {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            50% { transform: translate(20px, -20px) rotate(180deg); }
-            100% { transform: translate(0, 0) rotate(360deg); }
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            50% {
+                transform: translate(20px, -20px) rotate(180deg);
+            }
+
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
         }
     </style>
 </head>
+
 <body>
     <div class="planet-background">
         <div class="planet planet-1"></div>
@@ -525,7 +544,7 @@
             <div class="logo"><i class="fas fa-puzzle-piece"></i></div>
             <h1>PuzzlePi</h1>
             <div class="subtitle">Discover the magical world of mathematics!</div>
-            
+
             <div class="features">
                 <div class="feature">
                     <div class="feature-icon"><i class="fas fa-trophy"></i></div>
@@ -543,7 +562,7 @@
                     <div class="feature-desc">Play together</div>
                 </div>
             </div>
-            
+
             <div class="math-icons">
                 <span class="math-icon"><i class="fas fa-plus"></i></span>
                 <span class="math-icon"><i class="fas fa-minus"></i></span>
@@ -553,14 +572,14 @@
             </div>
             <div class="math-decoration bottom-right"><i class="fas fa-infinity"></i></div>
         </div>
-        
+
         <div class="right-panel">
             <div class="tab-slider">
                 <div class="tab-slider-indicator"></div>
                 <div class="tab active" data-form="login">Login</div>
                 <div class="tab" data-form="signup">Join</div>
             </div>
-            
+
             <div class="form-container">
                 <div class="form active" id="login-form">
                     <div class="form-content">
@@ -578,14 +597,14 @@
                         <div class="form-footer">
                             <a href="#" id="forgot-password">Forgot your password?</a>
                         </div>
-                        
+
                         <div class="fun-fact">
                             <div class="fun-fact-title"><i class="fas fa-lightbulb"></i> Did you know?</div>
                             If you add all digits from 1 to 9, you get 45!
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="form" id="signup-form">
                     <div class="form-content">
                         <div class="avatar-selection">
@@ -594,7 +613,7 @@
                             <img src="avatars/girlw.png" alt="Avatar 3" class="avatar" data-avatar="3">
                             <img src="avatars/girlb.png" alt="Avatar 4" class="avatar" data-avatar="4">
                         </div>
-                        
+
                         <div class="form-row">
                             <div class="form-col">
                                 <div class="input-group">
@@ -621,7 +640,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="form-row">
                             <div class="form-col">
                                 <div class="input-group">
@@ -638,9 +657,9 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <button id="signup-button">Start Adventure! <i class="fas fa-paper-plane"></i></button>
-                        
+
 
                     </div>
                 </div>
@@ -653,17 +672,17 @@
         const tabs = document.querySelectorAll('.tab');
         const forms = document.querySelectorAll('.form');
         const indicator = document.querySelector('.tab-slider-indicator');
-        
+
         tabs.forEach(tab => {
             tab.addEventListener('click', () => {
                 // Update active tab class
                 tabs.forEach(t => t.classList.remove('active'));
                 tab.classList.add('active');
-                
+
                 // Move indicator
                 const index = Array.from(tabs).indexOf(tab);
                 indicator.style.transform = `translateX(${index * 100}%)`;
-                
+
                 // Show active form
                 const formId = tab.getAttribute('data-form');
                 forms.forEach(form => {
@@ -674,7 +693,7 @@
                 });
             });
         });
-        
+
         // Avatar selection
         const avatars = document.querySelectorAll('.avatar');
         avatars.forEach(avatar => {
@@ -683,7 +702,7 @@
                 avatar.classList.add('selected');
             });
         });
-        
+
         // Random fun facts
         const funFacts = [
             "If you add all digits from 1 to 9, you get 45!",
@@ -692,7 +711,7 @@
             "The Möbius strip has only one side!",
             "The Fibonacci sequence is hidden everywhere in nature!"
         ];
-        
+
         const funFactElements = document.querySelectorAll('.fun-fact');
         funFactElements.forEach(element => {
             const factText = funFacts[Math.floor(Math.random() * funFacts.length)];
@@ -701,13 +720,13 @@
                 factContent.textContent = factText;
             }
         });
-        
+
         // Forgot password functionality
         document.getElementById('forgot-password').addEventListener('click', (e) => {
             e.preventDefault();
             alert('Don\'t worry! Please contact your teacher to reset your password.');
         });
-        
+
         // Login functionality
         document.getElementById('login-button').addEventListener('click', (e) => {
             e.preventDefault();
@@ -725,67 +744,68 @@
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ username, password })
             })
-            .then(res => {
-                if (!res.ok) throw new Error('Login fehlgeschlagen');
-                return res.json();
-            })
-            .then(data => {
-                console.log('Eingeloggter Benutzer:', data.user);
-                localStorage.setItem('puzzlePiUsername', data.user.username);
-                window.location.href = 'dashboard.html'; // z. B. zur Startseite weiterleiten
-            })
-            .catch(err => {
-                console.error(err);
-                alert('Oops! Username oder Passwort falsch!');
-            });
+                .then(res => {
+                    if (!res.ok) throw new Error('Login fehlgeschlagen');
+                    return res.json();
+                })
+                .then(data => {
+                    console.log('Eingeloggter Benutzer:', data.user);
+                    localStorage.setItem('puzzlePiUsername', data.user.username);
+                    window.location.href = 'dashboard.html'; // z. B. zur Startseite weiterleiten
+                })
+                .catch(err => {
+                    console.error(err);
+                    alert('Oops! Username oder Passwort falsch!');
+                });
         });
-        
-        // Registration functionality (neue Version mit Backend)
-        document.getElementById('signup-button').addEventListener('click', (e) => {
-            e.preventDefault(); // Verhindert Standardverhalten
 
-            const selectedAvatar = document.querySelector('.avatar.selected')?.getAttribute('src');
+        // Registration functionality (neue Version mit Backend)
+        document.getElementById('signup-button').addEventListener('click', () => {
             const username = document.getElementById('signup-username').value;
             const age = document.getElementById('signup-age').value;
             const email = document.getElementById('signup-email').value;
             const password = document.getElementById('signup-password').value;
 
-            if (!username || !age) {
-                alert('Please fill in all important fields, especially your name and age!');
+            // Aktuell ausgewählter Avatar (z. B. data-avatar="2")
+            const selectedAvatar = document.querySelector('.avatar.selected');
+            const avatar = selectedAvatar ? selectedAvatar.getAttribute('data-avatar') : null;
+
+            if (!username || !age || !email || !password || !avatar) {
+                alert('Bitte fülle alle Felder korrekt aus!');
                 return;
             }
 
-            const signupData = {
-                avatar: selectedAvatar,
-                username: username,
-                age: age,
-                email: email,
-                password: password
-            };
+            const userData = { username, age, email, password, avatar };
 
             fetch('http://localhost:3000/signup', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(signupData)
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(userData)
             })
-            .then(res => res.json())
-            .then(response => {
-                console.log('Antwort vom Server:', response);
-                alert(`Welcome to the team, ${username}! Your math adventure for ${age}-year-olds starts now! You can log in.`);
-                tabs[0].click(); // Zurück zum Login-Tab
-            })
-            .catch(error => {
-                console.error('Signup fehlgeschlagen:', error);
-                alert('Oops! Something went wrong. Please try again later.');
-            });
+                .then(res => {
+                    if (res.status === 409) {
+                        throw new Error('Username existiert bereits');
+                    }
+                    if (!res.ok) {
+                        throw new Error('Unbekannter Fehler beim Signup');
+                    }
+                    return res.json();
+                })
+                .then(data => {
+                    alert(`Willkommen, ${data.data.username}! Deine Mathereise beginnt jetzt!`);
+                    // Wechsel zu Login
+                    document.querySelector('.tab[data-form="login"]').click();
+                })
+                .catch(err => {
+                    console.error(err);
+                    alert(err.message);
+                });
         });
-        
+
         // Animation for math icons
         const mathIcons = document.querySelectorAll('.math-icon');
         let currentIconIndex = 0;
-        
+
         setInterval(() => {
             mathIcons.forEach(icon => icon.style.color = 'rgba(255, 255, 255, 0.9)');
             mathIcons[currentIconIndex].style.color = 'var(--accent)';
