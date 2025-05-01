@@ -709,31 +709,77 @@
         });
         
         // Login functionality
-        document.getElementById('login-button').addEventListener('click', () => {
-            const username = document.getElementById('login-username').value;
-            if (username) {
+        document.getElementById('login-button').addEventListener('click', (e) => {
+            e.preventDefault();
 
-                localStorage.setItem('puzzlePiUsername', username);
-                console.log(username);
-                
-                // Redirect to dashboard.html after the alert
-                window.location.href = 'dashboard.html';
-            } else {
-                alert('Please enter your username so we know who you are!');
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+
+            if (!username || !password) {
+                alert('Please enter both your username and password!');
+                return;
             }
+
+            fetch('http://localhost:3000/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password })
+            })
+            .then(res => {
+                if (!res.ok) throw new Error('Login fehlgeschlagen');
+                return res.json();
+            })
+            .then(data => {
+                console.log('Eingeloggter Benutzer:', data.user);
+                localStorage.setItem('puzzlePiUsername', data.user.username);
+                window.location.href = 'dashboard.html'; // z. B. zur Startseite weiterleiten
+            })
+            .catch(err => {
+                console.error(err);
+                alert('Oops! Username oder Passwort falsch!');
+            });
         });
         
-        // Registration functionality
-        document.getElementById('signup-button').addEventListener('click', () => {
+        // Registration functionality (neue Version mit Backend)
+        document.getElementById('signup-button').addEventListener('click', (e) => {
+            e.preventDefault(); // Verhindert Standardverhalten
+
+            const selectedAvatar = document.querySelector('.avatar.selected')?.getAttribute('src');
             const username = document.getElementById('signup-username').value;
             const age = document.getElementById('signup-age').value;
-            if (username && age) {
-                alert(`Welcome to the team, ${username}! Your math adventure for ${age}-year-olds starts now! You can log in.`);
-                // Switch to login after successful registration
-                tabs[0].click();
-            } else {
+            const email = document.getElementById('signup-email').value;
+            const password = document.getElementById('signup-password').value;
+
+            if (!username || !age) {
                 alert('Please fill in all important fields, especially your name and age!');
+                return;
             }
+
+            const signupData = {
+                avatar: selectedAvatar,
+                username: username,
+                age: age,
+                email: email,
+                password: password
+            };
+
+            fetch('http://localhost:3000/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(signupData)
+            })
+            .then(res => res.json())
+            .then(response => {
+                console.log('Antwort vom Server:', response);
+                alert(`Welcome to the team, ${username}! Your math adventure for ${age}-year-olds starts now! You can log in.`);
+                tabs[0].click(); // Zurück zum Login-Tab
+            })
+            .catch(error => {
+                console.error('Signup fehlgeschlagen:', error);
+                alert('Oops! Something went wrong. Please try again later.');
+            });
         });
         
         // Animation for math icons
