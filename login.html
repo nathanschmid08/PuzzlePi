@@ -700,6 +700,9 @@
             avatar.addEventListener('click', () => {
                 avatars.forEach(a => a.classList.remove('selected'));
                 avatar.classList.add('selected');
+
+                //Avatar-Path im Local Storage speichern
+                localStorage.setItem('PuzzelPiAvatar', avatar.getAttribute('src'));
             });
         });
 

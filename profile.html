@@ -10,20 +10,38 @@
             font-family: sans-serif;
             padding: 2rem;
         }
+        #avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-top: 1rem;
+        }
     </style>
 </head>
 <body>
     <h1 id="greeting">Hi <i class="fas fa-smile-beam"></i></h1>
+    <img id="avatar" src="" alt="Dein Avatar">
 
     <script>
         // Username aus dem Local Storage holen
         const username = localStorage.getItem('puzzlePiUsername');
+        const greeting = document.getElementById('greeting');
 
-        // Wenn vorhanden, in das H1 einfügen
         if (username) {
-            document.getElementById('greeting').innerHTML = `Hi ${username} <i class="fas fa-smile-beam"></i>`;
+            greeting.innerHTML = `Hi ${username} <i class="fas fa-smile-beam"></i>`;
         } else {
-            document.getElementById('greeting').innerHTML = `Hi stranger <i class="fas fa-question-circle"></i>`;
+            greeting.innerHTML = `Hi stranger <i class="fas fa-question-circle"></i>`;
+        }
+
+        // Avatar aus dem Local Storage holen
+        const avatarPath = localStorage.getItem('PuzzelPiAvatar');
+        const avatarImg = document.getElementById('avatar');
+
+        if (avatarPath) {
+            avatarImg.src = avatarPath;
+        } else {
+            avatarImg.alt = "Kein Avatar gewählt";
         }
     </script>
 </body>
