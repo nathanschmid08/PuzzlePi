@@ -117,7 +117,7 @@
 
         .right-panel {
             flex: 6;
-            padding: 30px;
+            padding: 30px 30px 60px 30px; /* Added more padding at the bottom */
             display: flex;
             flex-direction: column;
             overflow-y: auto;
@@ -291,7 +291,7 @@
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-top: 10px;
+            margin-top: 20px;
             box-shadow: 0 4px 15px rgba(108, 92, 231, 0.4);
             position: relative;
             overflow: hidden;
@@ -348,7 +348,7 @@
         }
 
         .feedback.show {
-            max-height: 200px;
+            max-height: 300px;
             opacity: 1;
             margin-top: 30px;
         }
@@ -441,28 +441,6 @@
             bottom: 20px;
             right: 20px;
             transform: rotate(20deg);
-        }
-
-        .fun-fact {
-            background-color: rgba(253, 203, 110, 0.2);
-            border-radius: 12px;
-            padding: 15px;
-            margin-top: 20px;
-            font-size: 14px;
-            position: relative;
-        }
-
-        .fun-fact-title {
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            margin-bottom: 5px;
-            color: var(--dark);
-        }
-
-        .fun-fact-title i {
-            margin-right: 8px;
-            color: var(--accent);
         }
 
         .planet-background {
@@ -618,17 +596,12 @@
 
             <div id="tasks" class="task-container"></div>
 
-            <div class="fun-fact">
-                <div class="fun-fact-title"><i class="fas fa-lightbulb"></i> Fun Fact</div>
-                <div id="funFact">Did you know? The word "mathematics" comes from the Greek word "mathema" which means "learning, study, science."</div>
-            </div>
-
-            <button id="resetBtn">Reset Exercises</button>
+            <button id="resetBtn" style="margin-bottom: 40px;">Reset Exercises</button>
 
             <div class="feedback" id="feedback">
                 <h2 id="feedbackTitle"></h2>
                 <p id="feedbackText"></p>
-                <button id="newExerciseBtn">New Exercises</button>
+                <button id="continueBtn" style="display: block; width: 100%; margin-top: 20px;">Continue</button>
             </div>
         </div>
     </div>
@@ -649,20 +622,6 @@
          { question: "63 ÷ 9 =", answer: 7 }
         ];
 
-        // Fun facts array
-        const funFacts = [
-            "Did you know? The word 'mathematics' comes from the Greek word 'mathema' which means 'learning, study, science.'",
-            "Zero was invented by Indian mathematician Aryabhata around the 5th century.",
-            "The equals sign (=) was invented by Welsh mathematician Robert Recorde in 1557.",
-            "If you multiply 111,111,111 × 111,111,111, you get 12,345,678,987,654,321.",
-            "The symbol for division (÷) is called an obelus.",
-            "The study of prime numbers is one of the oldest branches of mathematics.",
-            "The Fibonacci sequence appears throughout nature, from flower petals to pine cones.",
-            "Ancient Egyptians used fractions, but only with 1 as the numerator.",
-            "The number 0 is neither positive nor negative.",
-            "The infinity symbol (∞) was introduced by English mathematician John Wallis in 1655."
-        ];
-
         // Variables for game state
         let correctAnswers = 0;
         let startTime = null;
@@ -678,9 +637,8 @@
         const feedbackTitle = document.getElementById('feedbackTitle');
         const feedbackText = document.getElementById('feedbackText');
         const resetBtn = document.getElementById('resetBtn');
-        const newExerciseBtn = document.getElementById('newExerciseBtn');
+        const continueBtn = document.getElementById('continueBtn');
         const celebrationElement = document.getElementById('celebration');
-        const funFactElement = document.getElementById('funFact');
 
         // Timer function
         function startTimer() {
@@ -734,16 +692,10 @@
                 feedbackTitle.textContent = "Great job! All exercises completed!";
                 feedbackText.textContent = `You solved all ${tasks.length} exercises in ${totalTime}. Excellent work!`;
                 createConfetti();
-                newExerciseBtn.style.display = 'inline-block';
+                // Continue button is already visible by default
             }
             
             feedbackElement.classList.add('show');
-        }
-
-        // Show random fun fact
-        function showRandomFunFact() {
-            const randomIndex = Math.floor(Math.random() * funFacts.length);
-            funFactElement.textContent = funFacts[randomIndex];
         }
 
         // Create tasks
@@ -821,13 +773,12 @@
             progressFill.style.width = '0%';
             feedbackElement.classList.remove('show');
             celebrationElement.classList.remove('show');
-            showRandomFunFact();
             createTasks();
         }
 
         // Event listeners
         resetBtn.addEventListener('click', resetGame);
-        newExerciseBtn.addEventListener('click', resetGame);
+        continueBtn.addEventListener('click', resetGame);
 
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
@@ -841,7 +792,6 @@
         });
 
         // Initialize game
-        showRandomFunFact();
         createTasks();
     </script>
 </body>
