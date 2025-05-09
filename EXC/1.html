@@ -41,7 +41,7 @@
             overflow: hidden;
             transform: translateY(0);
             transition: transform 0.3s ease;
-            height: 550px;
+            height: 600px; /* Increased height to accommodate buttons */
         }
 
         .container:hover {
@@ -117,10 +117,12 @@
 
         .right-panel {
             flex: 6;
-            padding: 30px 30px 60px 30px; /* Added more padding at the bottom */
+            padding: 30px;
             display: flex;
             flex-direction: column;
             overflow-y: auto;
+            position: relative; /* Added position relative */
+            padding-bottom: 100px; /* Added extra padding at the bottom */
         }
 
         .controls {
@@ -280,6 +282,12 @@
             color: var(--error);
         }
 
+        .button-container {
+            margin-top: 20px;
+            margin-bottom: 30px;
+            width: 100%;
+        }
+
         button {
             width: 100%;
             padding: 16px;
@@ -291,7 +299,6 @@
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-top: 20px;
             box-shadow: 0 4px 15px rgba(108, 92, 231, 0.4);
             position: relative;
             overflow: hidden;
@@ -351,6 +358,7 @@
             max-height: 300px;
             opacity: 1;
             margin-top: 30px;
+            margin-bottom: 30px;
         }
 
         .feedback h2 {
@@ -534,11 +542,16 @@
 
             .right-panel {
                 padding: 20px;
+                padding-bottom: 100px;
             }
 
             .task-container {
                 grid-template-columns: 1fr;
             }
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
         }
     </style>
 </head>
@@ -596,12 +609,14 @@
 
             <div id="tasks" class="task-container"></div>
 
-            <button id="resetBtn" style="margin-bottom: 40px;">Reset Exercises</button>
+            <div class="button-container">
+                <button id="resetBtn">Reset Exercises</button>
+            </div>
 
             <div class="feedback" id="feedback">
                 <h2 id="feedbackTitle"></h2>
                 <p id="feedbackText"></p>
-                <button id="continueBtn" style="display: block; width: 100%; margin-top: 20px;">Continue</button>
+                <button id="continueBtn">Continue</button>
             </div>
         </div>
     </div>
