@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Chewy&family=Luckiest+Guy&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="ICON/icon.ico" type="image/x-icon">
+    <title>PuzzlePi Dashboard</title>
+    <style>
+        :root {
+            --primary: #6C5CE7;
+            --secondary: #00B894;
+            --accent: #FDCB6E;
+            --light: #f5f5f5;
+            --dark: #2D3436;
+            --error: #FF7675;
+            --success: #55efc4;
+        }
+
+        body {
+            font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #dfe6e9;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-image: url('/api/placeholder/800/600');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        nav {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 15px 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(45deg,
+                    rgba(255, 255, 255, 0.1),
+                    rgba(255, 255, 255, 0.1) 10px,
+                    transparent 10px,
+                    transparent 20px);
+            animation: move-background 20s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes move-background {
+            0% {
+                transform: rotate(0) translate(0, 0);
+            }
+
+            100% {
+                transform: rotate(360deg) translate(0, 0);
+            }
+        }
+
+        nav h1 {
+            color: white;
+            margin: 0;
+            font-size: 32px;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-family: 'Chewy', cursive;
+            display: flex;
+            align-items: center;
+        }
+
+        nav h1 i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+
+        nav ul li a:hover::after {
+            width: 70%;
+        }
+
+        main {
+            padding: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 32px;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            position: relative;
+            display: inline-block;
+            padding: 20px 30px;
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 4px;
+            width: 100px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        h3 {
+            color: var(--dark);
+            font-size: 24px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        h3::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 18px;
+            width: 6px;
+            background-color: var(--secondary);
+            border-radius: 3px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .exc-container {
+            background-color: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+
+        .exc-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+
+        .exc-container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(108, 92, 231, 0.15);
+            border-color: rgba(108, 92, 231, 0.1);
+        }
+
+        .exc-container h4 {
+            color: var(--dark);
+            font-size: 20px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .exc-container a {
+            display: inline-block;
+            padding: 10px 25px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(108, 92, 231, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .exc-container a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(108, 92, 231, 0.4);
+        }
+
+        .exc-container a::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%, -50%);
+            transform-origin: 50% 50%;
+        }
+
+        .exc-container a:focus:not(:active)::after {
+            animation: ripple 1s ease-out;
+        }
+
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0);
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: scale(200, 200);
+                opacity: 0;
+            }
+        }
+
+        .exc-container p {
+            margin-top: 15px;
+            color: #666;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+
+        .exc-container p i {
+            color: var(--accent);
+            margin-left: 5px;
+        }
+
+        .math-decoration {
+            position: fixed;
+            font-size: 150px;
+            opacity: 0.03;
+            z-index: -1;
+            color: var(--primary);
+        }
+
+        .math-decoration.top-left {
+            top: 100px;
+            left: 5%;
+            transform: rotate(-20deg);
+        }
+
+        .math-decoration.bottom-right {
+            bottom: 5%;
+            right: 5%;
+            transform: rotate(15deg);
+        }
+
+        .planet {
+            position: fixed;
+            border-radius: 50%;
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .planet-1 {
+            top: 15%;
+            left: 5%;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle at 30% 30%, var(--accent), var(--primary));
+            animation: float 15s ease-in-out infinite;
+        }
+
+        .planet-2 {
+            bottom: 10%;
+            right: 5%;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle at 70% 70%, var(--secondary), var(--primary));
+            animation: float 20s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            50% {
+                transform: translate(15px, -15px) rotate(180deg);
+            }
+
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
+        }
+
+        .fun-fact {
+            background-color: rgba(253, 203, 110, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 30px auto;
+            max-width: 800px;
+            font-size: 16px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid var(--accent);
+        }
+
+        .fun-fact-title {
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            color: var(--dark);
+            font-size: 18px;
+        }
+
+        .fun-fact-title i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+
+        /* User stats section */
+        .user-stats {
+            display: flex;
+            justify-content: space-between;
+            background-color: white;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .stat-box {
+            text-align: center;
+            flex: 1;
+            padding: 15px;
+            position: relative;
+        }
+
+        .stat-box:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 20%;
+            height: 60%;
+            width: 1px;
+            background-color: #e0e0e0;
+        }
+
+        .stat-title {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .stat-icon {
+            color: var(--secondary);
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        /* Progress bar */
+        .progress-container {
+            background-color: white;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .progress-title {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .progress-title h4 {
+            margin: 0;
+            color: var(--dark);
+        }
+
+        .progress-title span {
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .progress-bar {
+            height: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 5px;
+            width: 65%;
+            transition: width 1s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="planet planet-1"></div>
+    <div class="planet planet-2"></div>
+
+    <nav>
+        <h1><i class="fas fa-puzzle-piece"></i> PuzzlePi</h1>
+        <ul>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="#">Puzzles</a></li>
+            <li><a href="#">Explore</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Recommended for you</h2>
+        
+        <h3>For ages 8 to 9</h3>
+        <div class="container">
+            <div class="exc-container">
+                <h4>Basic Arithmetic 1</h4>
+                <a href="/placeholder">View</a> <!--EXC/1.txt-->
+                <p>Difficulty: <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i></p>
+            </div>
+            <div class="exc-container">
+                <h4>Basic Arithmetic 2</h4>
+                <a href="/placeholder">View</a> <!--EXC/2.txt-->
+                <p>Difficulty: <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i></p>
+            </div>
+            <div class="exc-container">
+                <h4>Shape Recognition</h4>
+                <a href="/placeholder">View</a>
+                <p>Difficulty: <i class="fa-solid fa-star"></i></p>
+            </div>
+        </div>
+        
+        <h3>For ages 10 to 12</h3>
+        <div class="container">
+            <div class="exc-container">
+                <h4>Fractions</h4>
+                <a href="/placeholder">View</a>
+                <p>Difficulty: <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i></p>
+            </div>
+            <div class="exc-container">
+                <h4>Decimals</h4>
+                <a href="/placeholder">View</a>
+                <p>Difficulty: <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i></p>
+            </div>
+            <div class="exc-container">
+                <h4>Percentages</h4>
+                <a href="/placeholder">View</a>
+                <p>Difficulty: <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i></p>
+            </div>
+        </div>
+        
+        <h3>For ages 13 to 15</h3>
+        <div class="container">
+            <div class="exc-container">
+                <h4>Pre-Algebra</h4>
+                <a href="/placeholder">View</a>
+                <p>Difficulty: <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i></p>
+            </div>
+            <div class="exc-container">
+                <h4>Geometry Basics</h4>
+                <a href="/placeholder">View</a>
+                <p>Difficulty: <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i></p>
+            </div>
+            <div class="exc-container">
+                <h4>Algebra I</h4>
+                <a href="/placeholder">View</a>
+                <p>Difficulty: <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i></p>
+            </div>
+        </div>
+
+    </main>
+</body>
+</html>
